@@ -22,6 +22,11 @@
 * Image segmentation
 * Image structure detection (skeletonization)
 * => Improve the image for **humans**
+* (or sometimes for later stages of Computer Vision)
+!img("Images/segmentation.jpg", 0.35)
+
+--- An example of skeletonization
+!img("Images/skeleton.png", 0.8)
 
 --- What is Computer Vision?  Some examples...
 * Object component detection (edge & region detection)
@@ -30,6 +35,7 @@
 * Face detection
 * Face recognition
 * => Analyse the image for **software**
+!img("Images/face-detection.png", 0.35)
 
 --- Python packages we will use
 * **Numpy**: efficient multi-dimensional arrays
