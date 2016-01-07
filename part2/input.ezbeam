@@ -142,6 +142,7 @@ A numeric value is generally either:
 |
 |
 |
+|
 
 --- A bit of code to get you started...
 
@@ -158,8 +159,9 @@ A numeric value is generally either:
 | >>> plt.imshow(img, interpolation="none")
 | >>> plt.show()
 |
-| # Test images & more code at https://github.com/jboy/ncss2016/images
-| # and https://github.com/jboy/ncss2016/part1
+| # Test images & more code at https://github.com/jboy/ncss2016
+| # in the folders "images" & "part1"
+| # Tip: Download the whole ZIP file to your desktop and unzip it.
 
 === Numpy arrays
 
@@ -532,7 +534,7 @@ A numeric value is generally either:
 --- Load colour images using scipy.misc.imread
 | >>> from scipy.misc import imread
 | >>> img = imread("20141226_222803.jpg")
-| # Test images at https://github.com/jboy/ncss2016/images
+| # Test images at https://github.com/jboy/ncss2016 in folder "images"
 | 
 | >>> img.shape
 | (1836, 3264, 3)
@@ -584,13 +586,13 @@ A numeric value is generally either:
 
 --- Here are some short scripts to save you some typing...
 
-* Scripts are at https://github.com/jboy/ncss2016/part1
+* **Scripts:** `https://github.com/jboy/ncss2016` in folder `part1`
 
 | useful.py
 | display_rgb_colour.py
 | display_rgb_grey.py
 
-* Slides are at https://github.com/jboy/ncss2016/part2
+* **Slides:** `https://github.com/jboy/ncss2016` in folder `part2`
 
 === Filters, edges, histograms, regions
 
@@ -611,12 +613,12 @@ A numeric value is generally either:
 | >>> from skimage.filters import gaussian
 | >>> blurred15 = gaussian(img, 15)
 |
-| >>> fig, (ax0, ax1) = plt.subplots(nrows=2)
+| >>> fig, (ax0,ax1) = plt.subplots(nrows=2)
 | >>> ax0.imshow(img)
 | >>> ax0.set_title("Original image")
 | >>> ax0.axis("off")
 | >>> ax1.imshow(blurred15)
-| >>> ax1.set_title("Gaussian(15) blur")
+| >>> ax1.set_title("Blur by gaussian(15)")
 | >>> ax1.axis("off")
 | >>> plt.show()
 !col(0.4)
@@ -631,7 +633,7 @@ A numeric value is generally either:
 | >>> img_g = rgb2grey(img)
 | >>> gradients = sobel(img_g)
 |
-| >>> fig, (ax0, ax1) = plt.subplots(nrows=2)
+| >>> fig, (ax0,ax1) = plt.subplots(nrows=2)
 | >>> ax0.imshow(img_g, cmap=plt.cm.Greys_r)
 | >>> ax0.set_title("Original image")
 | >>> ax0.axis("off")
@@ -642,7 +644,7 @@ A numeric value is generally either:
 !col(0.4)
 !img("Images/sobel.png", 0.35)
 
---- Canny edge detector finds binary edges in greyscale
+--- Canny edge detector finds binary edges in greyscale image
 
 !col(0.6)
 | >>> from skimage.color import rgb2grey
@@ -651,7 +653,7 @@ A numeric value is generally either:
 | >>> img_g = rgb2grey(img)
 | >>> edges = canny(img_g)
 |
-| >>> fig, (ax0, ax1) = plt.subplots(nrows=2)
+| >>> fig, (ax0,ax1) = plt.subplots(nrows=2)
 | >>> ax0.imshow(img_g, cmap=plt.cm.Greys_r)
 | >>> ax0.set_title("Original image")
 | >>> ax0.axis("off")
@@ -673,12 +675,12 @@ they won't segment the image into regions.
 
 --- You can ``threshold'' a greyscale image to binary
 
-!col(0.6)
+!col(0.65)
 | # We just take a guess: half the max.
 | >>> t = img_g.max() / 2.0
 | >>> thresh = img_g > t
 |
-| >>> fig, (ax0, ax1, ax2) = plt.subplots(nrows=3)
+| >>> fig, (ax0,ax1,ax2) = plt.subplots(nrows=3)
 | >>> ax0.imshow(img_g, cmap=plt.cm.Greys_r)
 | >>> ax0.set_title("Original image")
 | >>> ax0.axis("off")
@@ -686,21 +688,21 @@ they won't segment the image into regions.
 | >>> ax1.set_title("Histogram, t=%2f"%t)
 | >>> ax1.axvline(t, color="r")
 | >>> ax2.imshow(thresh, cmap=plt.cm.Greys_r)
-| >>> ax2.set_title("Thresholded by guesstimate")
+| >>> ax2.set_title("Thresholded by guess")
 | >>> ax2.axis("off")
 | >>> plt.show()
-!col(0.4)
+!col(0.35)
 !img("Images/thresholded.png", 0.28)
 
 --- Otsu's method chooses an ``optimal'' threshold automatically
 
-!col(0.6)
+!col(0.65)
 | >>> from skimage.filters import threshold_otsu
 | >>> # Otsu determines "optimal" threshold.
 | >>> t = threshold_otsu(img_g)
 | >>> thresh = img_g > t
 |
-| >>> fig, (ax0, ax1, ax2) = plt.subplots(nrows=3)
+| >>> fig, (ax0,ax1,ax2) = plt.subplots(nrows=3)
 | >>> ax0.imshow(img_g, cmap=plt.cm.Greys_r)
 | >>> ax0.set_title("Original image")
 | >>> ax0.axis("off")
@@ -711,12 +713,22 @@ they won't segment the image into regions.
 | >>> ax2.set_title("Thresholded by Otsu")
 | >>> ax2.axis("off")
 | >>> plt.show()
-!col(0.4)
+!col(0.35)
 !img("Images/thresholded-otsu.png", 0.28)
 
---- Further reading (if you're interested)
+--- Some more short scripts to save you some typing...
 
-* Watershed image segmentation
+* **Scripts:** `https://github.com/jboy/ncss2016` in folder `part3`
+
+| filter_gaussian.py
+| filter_sobel.py
+| filter_canny.py
+| display_rgb_sobel.py
+| display_rgb_hist.py
+| threshold.py
+| threshold_otsu.py
+
+* **Tip:** Download the whole ZIP file to your desktop and unzip it.
 
 --- Thanks for your time!
 
@@ -724,7 +736,7 @@ they won't segment the image into regions.
 computer vision, please ask!
 * (whether in person today, or by email in the future)
 
---- Some more short scripts to save you some typing...
+--- Further reading (if you're interested)
 
-* At https://github.com/jboy/ncss2016/part3
+* Watershed image segmentation
 
